@@ -27,12 +27,19 @@ def dopost():
       <Link to the wikipedia page>
       <The summary of the wikipedia page, but cropped to fit a tweet with four characters left> ...
     '''
+    # Query the wikipedia api
     random_json_bytes = urllib.request.urlopen(req).read()
     random_json_decoded = random_json_bytes.decode("utf-8")
     random_json = json.loads(random_json_decoded)
-    title = random_json["query"]["random"][0]["title"] # get id from random page
+
+    # Get the title of the random wikipedia page
+    title = random_json["query"]["random"][0]["title"]
     page = wiki.page(title)
+
+    # Send the actual post
     api.PostUpdate((page.fullurl + "\n" + page.summary)[:276] + " ...")
+
+    # Visual confirmation, could replace this with perhaps a write to a log file, if wanted!
     print("Post good")
 
 def main():

@@ -9,5 +9,5 @@ This twitter bot, once configured, periodically tweets the link to -- and a summ
  
 ## Upcoming features:
 
- - Config option to take random articles from a mediawiki site of your choice!
+ - Config option to take random articles from a wikimedia site of your choice!
 
